@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 public class SecurityConfig {
@@ -28,6 +29,18 @@ public class SecurityConfig {
                 .build();
 
         return new InMemoryUserDetailsManager(userDetails);
+    }
+
+    @Bean
+    public SecurityFilterChain configure(HttpSecurity http) throws Exception{
+        return http
+                .csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/persona/**")
+                .authenticated()
+                .and()
+                .httpBasic(Customizer.withDefaults()).build();
     }
 
 

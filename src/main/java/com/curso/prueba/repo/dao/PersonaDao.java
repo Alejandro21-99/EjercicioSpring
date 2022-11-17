@@ -12,6 +12,8 @@ public interface PersonaDao {
 
     public void guardar(Persona persona);
 
+    public void update(Persona Persona);
+
     public void eliminar(int id);
 
 }

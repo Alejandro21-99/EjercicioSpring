@@ -29,6 +29,8 @@ public class PersonaServicio {
         personaDaoImplement.guardar(persona);
     }
 
+    public void update(Persona persona){personaDaoImplement.update(persona);}
+
     public void eliminar(int id){
         personaDaoImplement.eliminar(id);
     }

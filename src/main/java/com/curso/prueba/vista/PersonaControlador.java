@@ -48,6 +48,13 @@ public class PersonaControlador {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PutMapping("/actualizar")
+    public ResponseEntity actualizar(@RequestBody Persona persona){
+        personaServicio.update(persona);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity eliminar(@PathVariable int id){
         personaServicio.eliminar(id);

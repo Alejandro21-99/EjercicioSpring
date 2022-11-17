@@ -38,6 +38,12 @@ public class PersonaDaoImplement implements PersonaDao{
     }
 
     @Override
+    public void update(Persona persona) {
+        jdbcTemplate.update("update persona_alejandro set primer_nombre = ? where id = ?",
+                persona.getPrimerNombre(), persona.getId());
+    }
+
+    @Override
     public void eliminar(int id) {
         jdbcTemplate.update("delete from persona_alejandro where id = ?", id);
     }
