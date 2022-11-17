@@ -44,7 +44,62 @@
 			<artifactId>mssql-jdbc</artifactId>
 			<version>11.1.2.jre11-preview</version>
 		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.7.5</version>
+		</dependency>
 	</dependencies>
+
+	<profiles>
+
+		<profile>
+			<id>pro</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.profiles.active>pro</spring.profiles.active>
+				<usr>${usr}</usr>
+				<clv>${clv}</clv>
+
+				<logUsr>#{logUsr}</logUsr>
+				<logClv>#{logClv}</logClv>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>dev</id>
+
+			<properties>
+				<spring.profiles.active>dev</spring.profiles.active>
+				<usr>${usr}</usr>
+				<clv>${clv}</clv>
+
+				<logUsr>#{logUsr}</logUsr>
+				<logClv>#{logClv}</logClv>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>prepro</id>
+
+			<properties>
+				<spring.profiles.active>prepro</spring.profiles.active>
+				<usr>${usr}</usr>
+				<clv>${clv}</clv>
+
+				<logUsr>#{logUsr}</logUsr>
+				<logClv>#{logClv}</logClv>
+			</properties>
+		</profile>
+
+	</profiles>
 
 	<build>
 		<plugins>

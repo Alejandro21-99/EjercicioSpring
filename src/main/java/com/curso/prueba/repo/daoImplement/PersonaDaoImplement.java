@@ -6,14 +6,13 @@ import com.curso.prueba.repo.dao.PersonaDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 @Repository
 public class PersonaDaoImplement implements PersonaDao{
 
-    JdbcTemplate jdbcTemplate = new JdbcTemplate();
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public PersonaDaoImplement(JdbcTemplate jdbcTemplate) {
